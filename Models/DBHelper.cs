@@ -4,14 +4,16 @@ namespace QuasarWebAppAPI.Models
 {
     public class DBHelper
     {
-
+        //Private Instance of the database context class
         private EF_DataContext _context;
 
+        //Public Instance of DBHelper that takes database context
         public DBHelper(EF_DataContext context)
         {
             _context = context;
         }
 
+        //Function that returns a list with every entry in the lambda_vac table
         public List<lambda_vac_Model> Get_lambda_vac_Values()
         {
             List<lambda_vac_Model> response = new List<lambda_vac_Model>();
@@ -55,6 +57,7 @@ namespace QuasarWebAppAPI.Models
             return response;
         }
 
+        //Function that returns a list with every entry in the lambda_obs table
         public List<lambda_obs_Model> Get_lambda_obs_Values()
         {
             List<lambda_obs_Model> response = new List<lambda_obs_Model>();
@@ -101,6 +104,7 @@ namespace QuasarWebAppAPI.Models
             return response;
         }
 
+        //Function that returns a list with every entry in the lya_flag table
         public List<lya_flag_Model> Get_lya_flag_Values()
         {
             List<lya_flag_Model> response = new List<lya_flag_Model>();
@@ -147,6 +151,7 @@ namespace QuasarWebAppAPI.Models
             return response;
         }
 
+        //Function that returns a list with every entry in the gradeflag table
         public List<gradeflag_Model> Get_gradeflag_Values()
         {
 
@@ -195,6 +200,7 @@ namespace QuasarWebAppAPI.Models
 
         }
 
+        //Function that returns a list with every entry in the fwhm table
         public List<fwhm_Model> Get_fwhm_Values()
         {
 
@@ -244,6 +250,7 @@ namespace QuasarWebAppAPI.Models
 
         }
 
+        //Function that returns a list with every entry in the ew_obs table
         public List<ew_obs_Model> Get_ew_obs_Values()
         {
 
@@ -292,6 +299,7 @@ namespace QuasarWebAppAPI.Models
 
         }
 
+        //Function that returns a list with every entry in the ew_err_obs table
         public List<ew_err_obs_Model> Get_ew_err_obs_Values()
         {
             List<ew_err_obs_Model> response = new List<ew_err_obs_Model>();
@@ -338,6 +346,7 @@ namespace QuasarWebAppAPI.Models
             return response;
         }
 
+        //Function that returns a list with every entry in the deltaz_sys table
         public List<deltaz_sys_Model> Get_deltaz_sys_Values()
         {
             List<deltaz_sys_Model> response = new List<deltaz_sys_Model>();
@@ -384,6 +393,7 @@ namespace QuasarWebAppAPI.Models
             return response;
         }
 
+        //Function that returns a list with every entry in the deltav_sys table
         public List<deltav_sys_Model> Get_deltav_sys_Values()
         {
 
@@ -431,6 +441,7 @@ namespace QuasarWebAppAPI.Models
             return response;
         }
 
+        //Function that returns a list with every entry in the blendflag table
         public List<blendflag_Model> Get_blendflag_Values()
         {
             List<blendflag_Model> response = new List<blendflag_Model>();
@@ -477,6 +488,7 @@ namespace QuasarWebAppAPI.Models
             return response;
         }
 
+        //Function that returns a list with every entry in the catalog table
         public List<quasar_catalog_Model> Get_catalog()
         {
             List<quasar_catalog_Model> response = new List<quasar_catalog_Model>();
@@ -528,6 +540,7 @@ namespace QuasarWebAppAPI.Models
             return response;
         }
 
+        //Function that returns a list with every entry in the w_limits table
         public List<w_limits_Model> Get_W_Limits()
         {
             List<w_limits_Model> response = new List<w_limits_Model>();

@@ -3,8 +3,7 @@ using QuasarWebAppAPI.EFCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+//Add services to the container.
 builder.Services.AddDbContext<EF_DataContext>(
         o => o.UseNpgsql(builder.Configuration.GetConnectionString("DBConnection"))
     );
@@ -19,10 +18,10 @@ builder.Services.AddCors(c =>
 
 var app = builder.Build();
 
+//Set local IP address for the API
 app.Urls.Add("http://{Local IP Address}:5024");
 
-// Configure the HTTP request pipeline.
-
+//Configure the HTTP request pipeline.
 app.UseCors("AllowOrigin");
 
 app.UseAuthorization();

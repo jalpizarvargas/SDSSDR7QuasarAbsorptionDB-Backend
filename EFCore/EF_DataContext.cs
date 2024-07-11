@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace QuasarWebAppAPI.EFCore
 {
+    //Class that stores the context for each of the tables inside the database
     public class EF_DataContext : DbContext
     {
 

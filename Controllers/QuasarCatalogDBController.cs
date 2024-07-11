@@ -4,15 +4,15 @@ using QuasarWebAppAPI.Models;
 using System.IO;
 using System.IO.Compression;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace QuasarWebAppAPI.Controllers
 {
     [ApiController]
     public class QuasarCatalogDBController : ControllerBase
     {
+        //Private instance of DBHelper
         private readonly DBHelper _db;
 
+        //Public instance of the Catalog Controller that takes database context for DBHelper
         public QuasarCatalogDBController(EF_DataContext context)
         {
             _db = new DBHelper(context);
@@ -130,22 +130,26 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/lambda_vac")]
         public IActionResult Get_lambda_vac()
         {
+            //Set response type to success
             ResponseType responseType = ResponseType.Success;
             try 
             {
+                //Gets the data from the database
                 IEnumerable<lambda_vac_Model> data = _db.Get_lambda_vac_Values();
 
+                //If no data is found Change response type
                 if (!data.Any())
                 {
                     responseType = ResponseType.NotFound;
                 }
 
-
+                //Send an OK response from the API with the requested data
                 return Ok(ResponseHandler.GetAppResponse(responseType, data)); 
                 
             }
             catch (Exception ex)
             {
+                //In case of an exception return a Bad Request response
                 responseType = ResponseType.Failed;
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
@@ -158,23 +162,26 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/lambda_obs")]
         public IActionResult Get_lambda_obs() 
         {
-
+            //Set response type to success
             ResponseType responseType = ResponseType.Success;
             try
             {
+                //Gets the data from the database
                 IEnumerable<lambda_obs_Model> data = _db.Get_lambda_obs_Values();
 
+                //If no data is found Change response type
                 if (!data.Any())
                 {
                     responseType = ResponseType.NotFound;
                 }
 
-
+                //Send an OK response from the API with the requested data
                 return Ok(ResponseHandler.GetAppResponse(responseType, data));
 
             }
             catch (Exception ex)
             {
+                //In case of an exception return a Bad Request response
                 responseType = ResponseType.Failed;
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
@@ -188,23 +195,26 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/lya_flag")]
         public IActionResult Get_lya_flag()
         {
-
+            //Set response type to success
             ResponseType responseType = ResponseType.Success;
             try
             {
+                //Gets the data from the database
                 IEnumerable<lya_flag_Model> data = _db.Get_lya_flag_Values();
 
+                //If no data is found Change response type
                 if (!data.Any())
                 {
                     responseType = ResponseType.NotFound;
                 }
 
-
+                //Send an OK response from the API with the requested data
                 return Ok(ResponseHandler.GetAppResponse(responseType, data));
 
             }
             catch (Exception ex)
             {
+                //In case of an exception return a Bad Request response
                 responseType = ResponseType.Failed;
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
@@ -218,23 +228,26 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/gradeflag")]
         public IActionResult Get_gradeflag()
         {
-
+            //Set response type to success
             ResponseType responseType = ResponseType.Success;
             try
             {
+                //Gets the data from the database
                 IEnumerable<gradeflag_Model> data = _db.Get_gradeflag_Values();
 
+                //If no data is found Change response type
                 if (!data.Any())
                 {
                     responseType = ResponseType.NotFound;
                 }
 
-
+                //Send an OK response from the API with the requested data
                 return Ok(ResponseHandler.GetAppResponse(responseType, data));
 
             }
             catch (Exception ex)
             {
+                //In case of an exception return a Bad Request response
                 responseType = ResponseType.Failed;
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
@@ -248,23 +261,26 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/fwhm")]
         public IActionResult Get_fwhm()
         {
-
+            //Set response type to success
             ResponseType responseType = ResponseType.Success;
             try
             {
+                //Gets the data from the database
                 IEnumerable<fwhm_Model> data = _db.Get_fwhm_Values();
 
+                //If no data is found Change response type
                 if (!data.Any())
                 {
                     responseType = ResponseType.NotFound;
                 }
 
-
+                //Send an OK response from the API with the requested data
                 return Ok(ResponseHandler.GetAppResponse(responseType, data));
 
             }
             catch (Exception ex)
             {
+                //In case of an exception return a Bad Request response
                 responseType = ResponseType.Failed;
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
@@ -278,23 +294,26 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/ew_obs")]
         public IActionResult Get_ew_obs()
         {
-
+            //Set response type to success
             ResponseType responseType = ResponseType.Success;
             try
             {
+                //Gets the data from the database
                 IEnumerable<ew_obs_Model> data = _db.Get_ew_obs_Values();
 
+                //If no data is found Change response type
                 if (!data.Any())
                 {
                     responseType = ResponseType.NotFound;
                 }
 
-
+                //Send an OK response from the API with the requested data
                 return Ok(ResponseHandler.GetAppResponse(responseType, data));
 
             }
             catch (Exception ex)
             {
+                //In case of an exception return a Bad Request response
                 responseType = ResponseType.Failed;
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
@@ -308,23 +327,26 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/ew_err_obs")]
         public IActionResult Get_ew_err_obs()
         {
-
+            //Set response type to success
             ResponseType responseType = ResponseType.Success;
             try
             {
+                //Gets the data from the database
                 IEnumerable<ew_err_obs_Model> data = _db.Get_ew_err_obs_Values();
 
+                //If no data is found Change response type
                 if (!data.Any())
                 {
                     responseType = ResponseType.NotFound;
                 }
 
-
+                //Send an OK response from the API with the requested data
                 return Ok(ResponseHandler.GetAppResponse(responseType, data));
 
             }
             catch (Exception ex)
             {
+                //In case of an exception return a Bad Request response
                 responseType = ResponseType.Failed;
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
@@ -338,23 +360,26 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/deltaz_sys")]
         public IActionResult Get_deltaz_sys()
         {
-
+            //Set response type to success
             ResponseType responseType = ResponseType.Success;
             try
             {
+                //Gets the data from the database
                 IEnumerable<deltaz_sys_Model> data = _db.Get_deltaz_sys_Values();
 
+                //If no data is found Change response type
                 if (!data.Any())
                 {
                     responseType = ResponseType.NotFound;
                 }
 
-
+                //Send an OK response from the API with the requested data
                 return Ok(ResponseHandler.GetAppResponse(responseType, data));
 
             }
             catch (Exception ex)
             {
+                //In case of an exception return a Bad Request response
                 responseType = ResponseType.Failed;
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
@@ -368,23 +393,26 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/deltav_sys")]
         public IActionResult Get_deltav_sys()
         {
-
+            //Set response type to success
             ResponseType responseType = ResponseType.Success;
             try
             {
+                //Gets the data from the database
                 IEnumerable<deltav_sys_Model> data = _db.Get_deltav_sys_Values();
 
+                //If no data is found Change response type
                 if (!data.Any())
                 {
                     responseType = ResponseType.NotFound;
                 }
 
-
+                //Send an OK response from the API with the requested data
                 return Ok(ResponseHandler.GetAppResponse(responseType, data));
 
             }
             catch (Exception ex)
             {
+                //In case of an exception return a Bad Request response
                 responseType = ResponseType.Failed;
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
@@ -398,23 +426,26 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/blendflag")]
         public IActionResult Get_blendflag()
         {
-
+            //Set response type to success
             ResponseType responseType = ResponseType.Success;
             try
             {
+                //Gets the data from the database
                 IEnumerable<blendflag_Model> data = _db.Get_blendflag_Values();
 
+                //If no data is found Change response type
                 if (!data.Any())
                 {
                     responseType = ResponseType.NotFound;
                 }
 
-
+                //Send an OK response from the API with the requested data
                 return Ok(ResponseHandler.GetAppResponse(responseType, data));
 
             }
             catch (Exception ex)
             {
+                //In case of an exception return a Bad Request response
                 responseType = ResponseType.Failed;
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
@@ -428,25 +459,26 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/catalog")]
         public IActionResult Get_Catalog()
         {
-
+            //Set response type to success
             ResponseType responseType = ResponseType.Success;
             try
             {
-
+                //Gets the data from the database
                 IEnumerable<quasar_catalog_Model> data = _db.Get_catalog();
 
+                //If no data is found Change response type
                 if (!data.Any())
                 {
                     responseType = ResponseType.NotFound;
                 }
 
-
+                //Send an OK response from the API with the requested data
                 return Ok(ResponseHandler.GetAppResponse(responseType, data));
-
 
             }
             catch (Exception ex)
             {
+                //In case of an exception return a Bad Request response
                 responseType = ResponseType.Failed;
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }
@@ -459,24 +491,26 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/w_limits")]
         public IActionResult Get_w_limits()
         {
+            //Set response type to success
             ResponseType responseType = ResponseType.Success;
             try
             {
-
+                //Gets the data from the database
                 IEnumerable<w_limits_Model> data = _db.Get_W_Limits();
 
+                //If no data is found Change response type
                 if (!data.Any())
                 {
                     responseType = ResponseType.NotFound;
                 }
 
-
+                //Send an OK response from the API with the requested data
                 return Ok(ResponseHandler.GetAppResponse(responseType, data));
-
                 
             }
             catch (Exception ex)
             {
+                //In case of an exception return a Bad Request response
                 responseType = ResponseType.Failed;
                 return BadRequest(ResponseHandler.GetExceptionResponse(ex));
             }

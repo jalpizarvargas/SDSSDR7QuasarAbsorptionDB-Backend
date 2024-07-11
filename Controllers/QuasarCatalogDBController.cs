@@ -27,9 +27,7 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/downloadEntryFiles/{plateNum}/{fiberNum}")]
         public IActionResult getArchiveFiles(int plateNum, int fiberNum)
         {
-            //File path of the directory containing the archive files
-
-            //Working Directory for Archive Files
+            //Working Directory for the Archive Files
             var dirPath = "/mnt/db/plates";
 
             //Variable that stores the directory name that matches the requested plate number
@@ -95,12 +93,12 @@ namespace QuasarWebAppAPI.Controllers
         [Route("api/[controller]/downloadCatalog")]
         public IActionResult downloadCatalog()
         {
-            //Working Directory for the quasar catalog and datamodel
+            //Working Directory for the quasar catalog and data model
             var filePath = "/mnt/db/DR7_QSOALS_catalog_091714/DR7_QSOALS_catalog_091714.fits";
             var dirPath = "/mnt/db/DR7_QSOALS_catalog_091714/DR7_QSOALS_catalog";
             var modelDocPath = "/mnt/db/DR7_QSOALS_catalog_091714/data_model_QSOALS_fits.pdf";
 
-            //Generate a folder to store the quasar catlog to store a copy of it if it doesn't exist
+            //Generate a folder to store the quasar catlog and data model to store a copies of them if it doesn't exist
             if (!System.IO.Directory.Exists(dirPath))
             {
                 System.IO.Directory.CreateDirectory(dirPath);
@@ -109,7 +107,7 @@ namespace QuasarWebAppAPI.Controllers
                 System.IO.File.Copy(modelDocPath, dirPath + "/data_model_QSOALS_fits.pdf");
             }
             
-            //Generates a zip file of the directory containing the catalog
+            //Generates a zip file of the directory
             ZipFile.CreateFromDirectory(dirPath, dirPath + ".zip");
 
             //Stores the data of the zipped catalog in a local variable
@@ -118,7 +116,7 @@ namespace QuasarWebAppAPI.Controllers
             //Deletes the zip file
             System.IO.File.Delete(dirPath + ".zip");
 
-            //Returns the requested catalog in a zip format
+            //Returns the requested documents in a zip format
             return File(result,"application/zip", "DR7_QSOALS_catalog.zip");
 
         }

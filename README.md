@@ -1,3 +1,3 @@
 # QuasarWebAppAPI
 
-Note: The API is using ASP.NET Core 7.0
+Note: The API is using ASP.NET Core 8.0
